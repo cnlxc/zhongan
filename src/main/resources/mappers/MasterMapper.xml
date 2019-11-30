@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cnlxc.zhongan.dao.MasterMapper" >
+  <resultMap id="BaseResultMap" type="com.cnlxc.zhongan.pojo.Master" >
+    <constructor >
+      <idArg column="key1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="key2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="key3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="key4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="key5" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="key6" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val5" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val6" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val7" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val8" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="val9" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    key1, key2, key3, key4, key5, key6, val1, val2, val3, val4, val5, val6, val7, val8, 
+    val9, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.cnlxc.zhongan.pojo.MasterKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhongan_master
+    where key1 = #{key1,jdbcType=VARCHAR}
+      and key2 = #{key2,jdbcType=VARCHAR}
+      and key3 = #{key3,jdbcType=VARCHAR}
+      and key4 = #{key4,jdbcType=VARCHAR}
+      and key5 = #{key5,jdbcType=VARCHAR}
+      and key6 = #{key6,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.cnlxc.zhongan.pojo.MasterKey" >
+    delete from zhongan_master
+    where key1 = #{key1,jdbcType=VARCHAR}
+      and key2 = #{key2,jdbcType=VARCHAR}
+      and key3 = #{key3,jdbcType=VARCHAR}
+      and key4 = #{key4,jdbcType=VARCHAR}
+      and key5 = #{key5,jdbcType=VARCHAR}
+      and key6 = #{key6,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cnlxc.zhongan.pojo.Master" >
+    insert into zhongan_master (key1, key2, key3, 
+      key4, key5, key6, val1, 
+      val2, val3, val4, val5, 
+      val6, val7, val8, val9, 
+      create_time, update_time)
+    values (#{key1,jdbcType=VARCHAR}, #{key2,jdbcType=VARCHAR}, #{key3,jdbcType=VARCHAR}, 
+      #{key4,jdbcType=VARCHAR}, #{key5,jdbcType=VARCHAR}, #{key6,jdbcType=VARCHAR}, #{val1,jdbcType=VARCHAR}, 
+      #{val2,jdbcType=VARCHAR}, #{val3,jdbcType=VARCHAR}, #{val4,jdbcType=VARCHAR}, #{val5,jdbcType=VARCHAR}, 
+      #{val6,jdbcType=VARCHAR}, #{val7,jdbcType=VARCHAR}, #{val8,jdbcType=VARCHAR}, #{val9,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cnlxc.zhongan.pojo.Master" >
+    insert into zhongan_master
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="key1 != null" >
+        key1,
+      </if>
+      <if test="key2 != null" >
+        key2,
+      </if>
+      <if test="key3 != null" >
+        key3,
+      </if>
+      <if test="key4 != null" >
+        key4,
+      </if>
+      <if test="key5 != null" >
+        key5,
+      </if>
+      <if test="key6 != null" >
+        key6,
+      </if>
+      <if test="val1 != null" >
+        val1,
+      </if>
+      <if test="val2 != null" >
+        val2,
+      </if>
+      <if test="val3 != null" >
+        val3,
+      </if>
+      <if test="val4 != null" >
+        val4,
+      </if>
+      <if test="val5 != null" >
+        val5,
+      </if>
+      <if test="val6 != null" >
+        val6,
+      </if>
+      <if test="val7 != null" >
+        val7,
+      </if>
+      <if test="val8 != null" >
+        val8,
+      </if>
+      <if test="val9 != null" >
+        val9,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="key1 != null" >
+        #{key1,jdbcType=VARCHAR},
+      </if>
+      <if test="key2 != null" >
+        #{key2,jdbcType=VARCHAR},
+      </if>
+      <if test="key3 != null" >
+        #{key3,jdbcType=VARCHAR},
+      </if>
+      <if test="key4 != null" >
+        #{key4,jdbcType=VARCHAR},
+      </if>
+      <if test="key5 != null" >
+        #{key5,jdbcType=VARCHAR},
+      </if>
+      <if test="key6 != null" >
+        #{key6,jdbcType=VARCHAR},
+      </if>
+      <if test="val1 != null" >
+        #{val1,jdbcType=VARCHAR},
+      </if>
+      <if test="val2 != null" >
+        #{val2,jdbcType=VARCHAR},
+      </if>
+      <if test="val3 != null" >
+        #{val3,jdbcType=VARCHAR},
+      </if>
+      <if test="val4 != null" >
+        #{val4,jdbcType=VARCHAR},
+      </if>
+      <if test="val5 != null" >
+        #{val5,jdbcType=VARCHAR},
+      </if>
+      <if test="val6 != null" >
+        #{val6,jdbcType=VARCHAR},
+      </if>
+      <if test="val7 != null" >
+        #{val7,jdbcType=VARCHAR},
+      </if>
+      <if test="val8 != null" >
+        #{val8,jdbcType=VARCHAR},
+      </if>
+      <if test="val9 != null" >
+        #{val9,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cnlxc.zhongan.pojo.Master" >
+    update zhongan_master
+    <set >
+      <if test="val1 != null" >
+        val1 = #{val1,jdbcType=VARCHAR},
+      </if>
+      <if test="val2 != null" >
+        val2 = #{val2,jdbcType=VARCHAR},
+      </if>
+      <if test="val3 != null" >
+        val3 = #{val3,jdbcType=VARCHAR},
+      </if>
+      <if test="val4 != null" >
+        val4 = #{val4,jdbcType=VARCHAR},
+      </if>
+      <if test="val5 != null" >
+        val5 = #{val5,jdbcType=VARCHAR},
+      </if>
+      <if test="val6 != null" >
+        val6 = #{val6,jdbcType=VARCHAR},
+      </if>
+      <if test="val7 != null" >
+        val7 = #{val7,jdbcType=VARCHAR},
+      </if>
+      <if test="val8 != null" >
+        val8 = #{val8,jdbcType=VARCHAR},
+      </if>
+      <if test="val9 != null" >
+        val9 = #{val9,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where key1 = #{key1,jdbcType=VARCHAR}
+      and key2 = #{key2,jdbcType=VARCHAR}
+      and key3 = #{key3,jdbcType=VARCHAR}
+      and key4 = #{key4,jdbcType=VARCHAR}
+      and key5 = #{key5,jdbcType=VARCHAR}
+      and key6 = #{key6,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cnlxc.zhongan.pojo.Master" >
+    update zhongan_master
+    set val1 = #{val1,jdbcType=VARCHAR},
+      val2 = #{val2,jdbcType=VARCHAR},
+      val3 = #{val3,jdbcType=VARCHAR},
+      val4 = #{val4,jdbcType=VARCHAR},
+      val5 = #{val5,jdbcType=VARCHAR},
+      val6 = #{val6,jdbcType=VARCHAR},
+      val7 = #{val7,jdbcType=VARCHAR},
+      val8 = #{val8,jdbcType=VARCHAR},
+      val9 = #{val9,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where key1 = #{key1,jdbcType=VARCHAR}
+      and key2 = #{key2,jdbcType=VARCHAR}
+      and key3 = #{key3,jdbcType=VARCHAR}
+      and key4 = #{key4,jdbcType=VARCHAR}
+      and key5 = #{key5,jdbcType=VARCHAR}
+      and key6 = #{key6,jdbcType=VARCHAR}
+  </update>
+</mapper>
