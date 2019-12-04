@@ -25,6 +25,9 @@ public class MasterKey {
     public MasterKey() {
         super();
     }
+    //方便查询
+    public MasterKey(String key1){this.key1 = key1;}
+
 
     public String getKey1() {
         return key1;

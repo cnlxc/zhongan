@@ -1,6 +1,7 @@
 package com.cnlxc.zhongan.dao;
 
 import com.cnlxc.zhongan.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -16,4 +17,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User selectByUsernameOrEmail(@Param("usernameOrEmail") String usernameOrEmail);
 }
