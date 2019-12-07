@@ -6,4 +6,12 @@ package com.cnlxc.zhongan.common;
 
 public class Const {
     public static final String DUMMY = "DUMMY"; //MASTER table dummy key
+
+    public interface Role{
+        public static final  int ROLE_USER = 5;
+        public static final  int ROLE_VIP1 = 4;
+        public static final  int ROLE_VIP3 = 2;
+        public static final  int ROLE_ADMIN = 1;
+
+    }
 }

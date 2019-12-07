@@ -1,24 +1,24 @@
 package com.cnlxc.zhongan.security;
 
 import com.cnlxc.zhongan.security.UserPrincipal;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 /**
  * Created by 82138 on 2019/12/4.
  */
 @Slf4j
+@Component
 public class JwtTokenProvider {
-    @Value("${app.jwtSecret}")
-    private String jwtSecret;
     @Value("${app.JWTZhonganSuperSecretKey}")
+    private String jwtSecret;
+    @Value("${app.jwtExpirationInMs}")
     private int jwtExpirationInMs;
 
     // 根据用户ID生成TOKEN
@@ -43,5 +43,20 @@ public class JwtTokenProvider {
                             .getBody();
 
         return Long.parseLong(claims.getSubject());
+    }
+
+    public boolean validateToken(String token){
+        try{
+            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
+            return true;
+        }catch (SignatureException ex){
+            log.error("Invalid JWT Signature.");
+        }catch (ExpiredJwtException ex){
+            log.error("Expired JWT token.");
+        }catch (UnsupportedJwtException ex){
+            log.error("Unsupported JWT Token");
+        }
+        return false;
+
     }
 }

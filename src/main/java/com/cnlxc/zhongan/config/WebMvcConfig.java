@@ -18,6 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedMethods("HEAD", "OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE")
-                .maxAge(MAX_AGE_SECS);
+                //.allowedHeaders()  //跨域请求头信息检查
+                .maxAge(MAX_AGE_SECS); //预检请求的有效期，单位为秒
     }
 }

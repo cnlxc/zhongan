@@ -6,6 +6,7 @@ import com.cnlxc.zhongan.pojo.Master;
 import com.cnlxc.zhongan.pojo.MasterKey;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import com.cnlxc.zhongan.pojo.User;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
  * Created by 82138 on 2019/11/30.
  */
 @AllArgsConstructor
-@Component
+@Data
 public class UserPrincipal implements UserDetails{
 
     @Autowired
@@ -54,7 +55,7 @@ public class UserPrincipal implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
@@ -68,23 +69,25 @@ public class UserPrincipal implements UserDetails{
     }
 
     @Override
+    //注销账户功能添加时 追加判定
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
+    //黑名单用户功能添加时 追加判定
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override

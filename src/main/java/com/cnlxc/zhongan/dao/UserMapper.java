@@ -19,4 +19,8 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     User selectByUsernameOrEmail(@Param("usernameOrEmail") String usernameOrEmail);
+
+    int existsByUsername(@Param("username") String username);
+
+    int existsByEmail(@Param("email") String email);
 }

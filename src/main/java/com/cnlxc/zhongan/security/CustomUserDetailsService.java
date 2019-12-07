@@ -1,6 +1,7 @@
 package com.cnlxc.zhongan.security;
 
 import com.cnlxc.zhongan.dao.UserMapper;
+import com.cnlxc.zhongan.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.cnlxc.zhongan.pojo.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,5 +28,9 @@ public class CustomUserDetailsService implements UserDetailsService{
         return UserPrincipal.create(user);
     }
 
-
+    public UserDetails loadByUserId(int userId){
+        User user = userMapper.selectByPrimaryKey(userId);
+        if(Objects.isNull(user)) throw new ResourceNotFoundException("User","id",userId);
+        return UserPrincipal.create(user);
+    }
 }
