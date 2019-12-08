@@ -3,6 +3,7 @@ package com.cnlxc.zhongan.controller;
 import com.cnlxc.zhongan.dao.UserMapper;
 import com.cnlxc.zhongan.payload.ResponseCode;
 import com.cnlxc.zhongan.payload.ServerResponse;
+import com.cnlxc.zhongan.payload.SigninRequest;
 import com.cnlxc.zhongan.payload.SignupRequest;
 import com.cnlxc.zhongan.pojo.User;
 import com.cnlxc.zhongan.security.JwtTokenProvider;
@@ -28,5 +29,9 @@ public class AuthController {
     public ServerResponse<?> signup(@Valid @RequestBody SignupRequest signupRequest){
         return userService.singup(signupRequest);
 
+    }
+    @PostMapping("/signin")
+    public ServerResponse<?> signin(@Valid @RequestBody SigninRequest signinRequest){
+        return userService.singin(signinRequest);
     }
 }

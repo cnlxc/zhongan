@@ -6,6 +6,10 @@ package com.cnlxc.zhongan.common;
 
 public class Const {
     public static final String DUMMY = "DUMMY"; //MASTER table dummy key
+    public static final String MASTER_KEY_USER_ROLE = "USER_ROLE";
+
+    public static final String AUTH_TYPE = "Bearer";
+
 
     public interface Role{
         public static final  int ROLE_USER = 5;

@@ -4,11 +4,17 @@ import com.cnlxc.zhongan.common.Const;
 import com.cnlxc.zhongan.dao.UserMapper;
 import com.cnlxc.zhongan.payload.ResponseCode;
 import com.cnlxc.zhongan.payload.ServerResponse;
+import com.cnlxc.zhongan.payload.SigninRequest;
 import com.cnlxc.zhongan.payload.SignupRequest;
 import com.cnlxc.zhongan.pojo.User;
+import com.cnlxc.zhongan.security.JwtTokenProvider;
 import com.cnlxc.zhongan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -25,7 +31,10 @@ public class UserServiceImpl implements IUserService{
     UserMapper userMapper;
     @Autowired
     PasswordEncoder passwordEncoder;
-
+    @Autowired
+    AuthenticationManager authenticationManager;
+    @Autowired
+    JwtTokenProvider tokenProvider;
     @Override
     public ServerResponse singup(SignupRequest request) {
 
@@ -48,6 +57,21 @@ public class UserServiceImpl implements IUserService{
         };
         return ServerResponse.createByErrorMessage("创建用户失败。");
 
+    }
+
+
+    public ServerResponse singin(SigninRequest signupRequest){
+        System.out.println("getUsernameOrEmail " + signupRequest.getUsernameOrEmail());
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        signupRequest.getUsernameOrEmail(),
+                        signupRequest.getPassword()
+                )
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String jwt = tokenProvider.generateToken(authentication);
+        return ServerResponse.createBySuccess(Const.AUTH_TYPE + " " + jwt);
     }
 
 

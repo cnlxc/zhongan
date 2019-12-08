@@ -26,8 +26,6 @@ import java.util.stream.Collectors;
 @Data
 public class UserPrincipal implements UserDetails{
 
-    @Autowired
-    static MasterMapper masterMapper;
     //************  field *******************//
     private Long id;
 
@@ -41,11 +39,8 @@ public class UserPrincipal implements UserDetails{
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public static UserPrincipal create(User user){
+    public static UserPrincipal create(User user,List<GrantedAuthority> authorities){
         String userRoleId = String.valueOf(user.getRole());
-        Master master = masterMapper.selectByPrimaryKey(new MasterKey(userRoleId,Const.DUMMY,Const.DUMMY,Const.DUMMY,Const.DUMMY,Const.DUMMY));
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(master.getVal1()));
 
         UserPrincipal userPrincipal = new UserPrincipal(Long.valueOf(user.getId()),user.getUsername(),user.getEmail(),user.getPassword(),authorities);
 

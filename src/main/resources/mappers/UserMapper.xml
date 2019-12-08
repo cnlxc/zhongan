@@ -152,7 +152,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectByUsernameOrEmail"  resultMap="BaseResultMap" parameterType="int">
+  <select id="selectByUsernameOrEmail"  resultMap="BaseResultMap" parameterType="string">
     select * from zhongan_user
     where username = #{usernameOrEmail} or email = #{usernameOrEmail}
   </select>
