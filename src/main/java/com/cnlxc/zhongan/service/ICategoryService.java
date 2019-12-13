@@ -15,4 +15,8 @@ public interface ICategoryService {
     ServerResponse<Category> getCategoryById(int id);
 
     ServerResponse<Set<Category>> getCurCategoryAndChildCategory(int curId);
+
+    //添加种类
+
+    //移除种类
 }

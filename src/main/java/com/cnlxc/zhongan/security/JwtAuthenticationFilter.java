@@ -1,13 +1,11 @@
 package com.cnlxc.zhongan.security;
 
-import com.cnlxc.zhongan.dao.UserMapper;
-import com.cnlxc.zhongan.pojo.User;
+import com.cnlxc.zhongan.dao_bak.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;

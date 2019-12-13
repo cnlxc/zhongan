@@ -1,8 +1,8 @@
 package com.cnlxc.zhongan.security;
 
 import com.cnlxc.zhongan.common.Const;
-import com.cnlxc.zhongan.dao.MasterMapper;
-import com.cnlxc.zhongan.dao.UserMapper;
+import com.cnlxc.zhongan.dao_bak.MasterMapper;
+import com.cnlxc.zhongan.dao_bak.UserMapper;
 import com.cnlxc.zhongan.exception.ResourceNotFoundException;
 import com.cnlxc.zhongan.pojo.Master;
 import com.cnlxc.zhongan.pojo.MasterKey;

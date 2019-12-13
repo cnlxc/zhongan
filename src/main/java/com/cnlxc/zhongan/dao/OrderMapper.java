@@ -1,9 +1,7 @@
 package com.cnlxc.zhongan.dao;
 
 import com.cnlxc.zhongan.pojo.Order;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
 

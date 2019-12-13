@@ -1,23 +1,14 @@
 package com.cnlxc.zhongan.security;
 
-import com.cnlxc.zhongan.common.Const;
-import com.cnlxc.zhongan.dao.MasterMapper;
-import com.cnlxc.zhongan.pojo.Master;
-import com.cnlxc.zhongan.pojo.MasterKey;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import com.cnlxc.zhongan.pojo.User;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by 82138 on 2019/11/30.

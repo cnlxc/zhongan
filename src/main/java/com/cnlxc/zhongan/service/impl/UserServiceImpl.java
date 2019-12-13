@@ -10,7 +10,6 @@ import com.cnlxc.zhongan.pojo.User;
 import com.cnlxc.zhongan.security.JwtTokenProvider;
 import com.cnlxc.zhongan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

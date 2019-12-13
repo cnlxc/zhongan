@@ -14,7 +14,6 @@
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-
   <sql id="Base_Column_List" >
     id, parent_id, name, status, sort_order, age_limit_start, age_limit_end, create_time, 
     update_time
@@ -143,12 +142,9 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-
   <select id="getCategoryByParentId" resultMap="BaseResultMap" parameterType="int">
-      select * from
-      zhongan_category
-      WHERE  parent_id = #{parentId}
+    select * from
+    zhongan_category
+    WHERE  parent_id = #{parentId}
   </select>
-
-
 </mapper>

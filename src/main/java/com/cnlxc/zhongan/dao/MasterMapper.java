@@ -2,9 +2,7 @@ package com.cnlxc.zhongan.dao;
 
 import com.cnlxc.zhongan.pojo.Master;
 import com.cnlxc.zhongan.pojo.MasterKey;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface MasterMapper {
     int deleteByPrimaryKey(MasterKey key);
 
