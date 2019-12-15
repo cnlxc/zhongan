@@ -1,6 +1,6 @@
 package com.cnlxc.zhongan.security;
 
-import com.cnlxc.zhongan.dao_bak.UserMapper;
+import com.cnlxc.zhongan.dao.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,9 +42,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             usernamePasswordAuthenticationToken.setDetails((new WebAuthenticationDetailsSource().buildDetails(httpServletRequest)));
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 
-            log.info("证用户加载完成");
+            log.info("证用户加载完成" +httpServletRequest.getRequestURI());
         }else{
-            log.info("认证过滤器没有加载认证用户加载完成");
+            log.info("认证过滤器没有加载认证用户" + httpServletRequest.getRequestURI());
         }
 
         filterChain.doFilter(httpServletRequest,httpServletResponse);

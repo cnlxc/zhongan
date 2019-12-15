@@ -1,12 +1,15 @@
 package com.cnlxc.zhongan.pojo;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 
+import java.util.Date;
+@Builder
 public class User {
     private Integer id;
 
     private String username;
-
+    @JsonIgnore
     private String password;
 
     private String email;
@@ -35,7 +38,6 @@ public class User {
         this.createTime = createTime;
         this.updateTime = updateTime;
     }
-
     public User() {
         super();
     }
@@ -119,4 +121,5 @@ public class User {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
 }

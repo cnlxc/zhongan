@@ -1,5 +1,7 @@
 package com.cnlxc.zhongan.service;
 
+import com.cnlxc.zhongan.payload.ServerResponse;
+
 import java.util.Map;
 
 /**
@@ -18,23 +20,22 @@ public interface IOrderService {
 
     ServerResponse queryOrderStatus(Integer userId, long orderNo);
 
-    ServerResponse createOrder(Integer userId, Integer shippingId);
+    ServerResponse createOrder(Integer userId);
 
     ServerResponse<String> cancel(Integer userId, Long orderNo);
 
-    ServerResponse<OrderProductVo> getOrderCartProduct(Integer userId);
+    ServerResponse getOrderCartProduct(Integer userId);
 
     ServerResponse getOrderDetial(Integer userId, Long orderNo);
 
-    ServerResponse<PageInfo> getOrderList(Integer userId, int pageNum, int PageSize);
+    ServerResponse getOrderList(Integer userId, int pageNum, int PageSize);
 
-    ServerResponse<PageInfo> manageList(int pageNum, int pageSize);
+    ServerResponse manageList(int pageNum, int pageSize);
 
-    ServerResponse<OrderVo> manageDetail(Long orderNo);
+    ServerResponse manageDetail(Long orderNo);
 
-    ServerResponse<PageInfo> manageSearch(Long orderNo, int pageNum, int pageSize);
+    ServerResponse manageSearch(Long orderNo, int pageNum, int pageSize);
 
-    ServerResponse<String> manageSendGoods(Long orderNo);
 
     //hour个小时未付款的订单关闭
     void closeOrder(int hour);
