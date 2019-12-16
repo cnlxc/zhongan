@@ -1,5 +1,7 @@
 package com.cnlxc.zhongan.pojo;
 
+import java.util.Date;
+
 public class Person extends PersonKey {
     private Integer age;
 
@@ -21,7 +23,11 @@ public class Person extends PersonKey {
 
     private Double weight;
 
-    public Person(Integer id, String name, String username, Integer age, String sex, String hometown, String single, String diploma, String graduatedSchool, String company, String withChildren, Double height, Double weight) {
+    private Date createTime;
+
+    private Date updateTime;
+
+    public Person(Integer id, String name, String username, Integer age, String sex, String hometown, String single, String diploma, String graduatedSchool, String company, String withChildren, Double height, Double weight, Date createTime, Date updateTime) {
         super(id, name, username);
         this.age = age;
         this.sex = sex;
@@ -33,6 +39,8 @@ public class Person extends PersonKey {
         this.withChildren = withChildren;
         this.height = height;
         this.weight = weight;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
     }
 
     public Person() {
@@ -117,5 +125,21 @@ public class Person extends PersonKey {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
